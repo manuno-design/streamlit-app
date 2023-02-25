@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  python:
+    container_name: python
+    image: python
+    tty: true
+    volumes:
+      - "~/.ssh:/root/.ssh"
+      - ".:/root/app"
+    working_dir: "/root/app"
+    restart: always
+    networks:
+      - app-network
+
+networks:
+  app-network:
